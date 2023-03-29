@@ -8,12 +8,26 @@ using System.Threading.Tasks;
 
 namespace P22CV.Funciones
 {
-    internal class CRUDActores
+    internal class CrudActores
     {
-        public void Crear(string nom, string nac, string per, string pel, int anio, string mes, string dia)
+        public void Crear()
         {
             Console.WriteLine("INSERTAR ACTOR");
+           
+            Console.WriteLine("Nombre");
+            string nombre = Console.ReadLine();
 
+            Console.WriteLine("Nacionalidad");
+            string nacionalidad = Console.ReadLine();
+
+            Console.WriteLine("Personaje Famoso");
+            string Per = Console.ReadLine();
+
+            Console.WriteLine("pelicula Famosa");
+            string Pel = Console.ReadLine();
+
+            Console.WriteLine("fecha de nacimiento");
+            string fecha = Console.ReadLine();
 
 
             using (var _context = new ApplicationDbContext())
@@ -22,13 +36,11 @@ namespace P22CV.Funciones
                 Actores act = new Actores()
                 {
 
-                    Nombre = nom,
-                    Nacionalidad = nac,
-                    PersonajeFamoso = per,
-                    PeliculaFamosa = pel,
-                    Año = anio,
-                    MesNacimiento = mes,
-                    DiaNacimiento = dia,
+                    Nombre = nombre,
+                    Nacionalidad = nacionalidad,
+                    PersonajeFamoso = Per,
+                    PeliculaFamosa = Pel,
+                    FechaNac = fecha
 
                 };
 
@@ -55,12 +67,8 @@ namespace P22CV.Funciones
                 act.PersonajeFamoso = Console.ReadLine();
                 Console.WriteLine("Ingrese la PeliculaFamosa");
                 act.PeliculaFamosa = Console.ReadLine();
-                Console.WriteLine("Ingrese el anio de nacimiento");
-                act.Año = int.Parse(Console.ReadLine());
-                Console.WriteLine("Ingrese el mes de nacimiento");
-                act.MesNacimiento = Console.ReadLine();
-                Console.WriteLine("Ingrese el dia de nacimiento");
-                act.DiaNacimiento = Console.ReadLine();
+                Console.WriteLine("Ingrese la fecha de nacimiento");
+                act.FechaNac = Console.ReadLine();
 
                 _context.Actores.Update(act);
                 _context.SaveChanges();
@@ -87,7 +95,7 @@ namespace P22CV.Funciones
                     Console.WriteLine($">> Nacionalidad: {item.Nacionalidad}");
                     Console.WriteLine($">> Personaje Famoso: {item.PersonajeFamoso}");
                     Console.WriteLine($">> Pelicula Famosa: {item.PeliculaFamosa}");
-                    Console.WriteLine($">> Fecha de Nacimiento: {item.DiaNacimiento}/{item.MesNacimiento}/{item.Año}");
+                    Console.WriteLine($">> Fecha de Nacimiento: {item.FechaNac}");
                     Console.WriteLine("_________________________________");
 
 

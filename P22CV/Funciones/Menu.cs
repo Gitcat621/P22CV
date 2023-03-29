@@ -10,22 +10,23 @@ namespace P22CV.Funciones
     {
         public void Login()
         {
-        login:
-
-            Console.WriteLine("INICIE SESION");
-
-            Console.WriteLine("Ingrese su usuario");
-            string nombre = Console.ReadLine();
-
-            Console.WriteLine("Ingrese su password");
-            string password = Console.ReadLine();
-
-            Login log = new Login();
-            log.singin(nombre, password);
-
-            goto login;
+            INICIO:
+            Console.WriteLine("Bienvenido ¿Que desea hacer?");
+            Console.WriteLine("1. Iniciar Sesion");
+            Console.WriteLine("2. Regsistrarse");
+            CrudUsuarios login = new CrudUsuarios();
+            int opc = int.Parse(Console.ReadLine());
+            switch(opc)
+            {
+                case 1:
+                    login.singin();
+                    break;
+                case 2:
+                    login.Crear();
+                 goto INICIO;
+            }
         }
-        public void Opciones()
+        public void Inicio()
         {
         ERROR1:
             try
@@ -79,7 +80,6 @@ namespace P22CV.Funciones
             }
 
         }
-
         public void opcionesPelicula()
         {
         ERROR:
@@ -89,7 +89,7 @@ namespace P22CV.Funciones
             Console.WriteLine("3. Editar");
             Console.WriteLine("4. Eliminar");
             int opc = int.Parse(Console.ReadLine());
-            CRUDPeliculas peli = new CRUDPeliculas();
+            CrudPeliculas peli = new CrudPeliculas();
             switch (opc)
             {
                 case 1:
@@ -98,32 +98,7 @@ namespace P22CV.Funciones
                     goto ERROR;
                 case 2:
                     Console.Clear();
-
-                    Console.WriteLine("Nombre");
-                    string nombre = Console.ReadLine();
-
-                    Console.WriteLine("Anio");
-                    int anio = int.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Clasificacion");
-                    string clasificacion = Console.ReadLine();
-
-                    Console.WriteLine("Director");
-                    string director = Console.ReadLine();
-
-                    Console.WriteLine("Nacionalidad");
-                    string nacionalidad = Console.ReadLine();
-
-                    Console.WriteLine("Genero");
-                    string genero = Console.ReadLine();
-
-                    Console.WriteLine("Idioma"); ;
-                    string idioma = Console.ReadLine();
-
-                    Console.WriteLine("Duracion");
-                    string duracion = Console.ReadLine();
-
-                    peli.Crear(nombre, anio, clasificacion, director, nacionalidad, genero, idioma, duracion);
+                    peli.Crear();
                     goto ERROR;
                 case 3:
                     Console.Clear();
@@ -146,7 +121,6 @@ namespace P22CV.Funciones
                     goto ERROR;
             }
         }
-
         public void opcionesActor()
         {
         ERROR:
@@ -156,7 +130,7 @@ namespace P22CV.Funciones
             Console.WriteLine("3. Editar");
             Console.WriteLine("4. Eliminar");
 
-            CRUDActores act = new CRUDActores();
+            CrudActores act = new CrudActores();
             int opc = int.Parse(Console.ReadLine());
             switch (opc)
             {
@@ -167,29 +141,7 @@ namespace P22CV.Funciones
                     goto ERROR;
                 case 2:
                     Console.Clear();
-
-                    Console.WriteLine("Nombre");
-                    string nombre = Console.ReadLine();
-
-                    Console.WriteLine("Nacionalidad");
-                    string nacionalidad = Console.ReadLine();
-
-                    Console.WriteLine("Personaje Famoso");
-                    string PF = Console.ReadLine();
-
-                    Console.WriteLine("pelicula Famosa");
-                    string PeF = Console.ReadLine();
-
-                    Console.WriteLine("Anio de nacimiento");
-                    int anio = int.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Mes de nacimiento");
-                    string mes = Console.ReadLine();
-
-                    Console.WriteLine("Dia de nacimiento"); ;
-                    string dia = Console.ReadLine();
-
-                    act.Crear(nombre, nacionalidad, PF, PeF, anio, mes, dia);
+                    act.Crear();
                     goto ERROR;
                 case 3:
                     Console.Clear();
@@ -212,7 +164,6 @@ namespace P22CV.Funciones
                     goto ERROR;
             }
         }
-
         public void opcionesDirector()
         {
         ERROR:
@@ -221,7 +172,7 @@ namespace P22CV.Funciones
             Console.WriteLine("2. Agregar");
             Console.WriteLine("3. Editar");
             Console.WriteLine("4. Eliminar");
-            CRUDDirector dir = new CRUDDirector();
+            CrudDirectores dir = new CrudDirectores();
             int opc = int.Parse(Console.ReadLine());
             switch (opc)
             {
@@ -231,26 +182,7 @@ namespace P22CV.Funciones
                     goto ERROR;
                 case 2:
                     Console.Clear();
-
-                    Console.WriteLine("Nombre");
-                    string nombre = Console.ReadLine();
-
-                    Console.WriteLine("Nacionalidad");
-                    string nacionalidad = Console.ReadLine();
-
-                    Console.WriteLine("pelicula Famosa");
-                    string PeF = Console.ReadLine();
-
-                    Console.WriteLine("Anio de nacimiento");
-                    int anio = int.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Mes de nacimiento");
-                    string mes = Console.ReadLine();
-
-                    Console.WriteLine("Dia de nacimiento"); ;
-                    string dia = Console.ReadLine();
-
-                    dir.Crear(nombre, nacionalidad, PeF, anio, mes, dia);
+                    dir.Crear();
                     goto ERROR;
                 case 3:
                     Console.Clear();
@@ -273,7 +205,6 @@ namespace P22CV.Funciones
                     goto ERROR;
             }
         }
-
         public void opcionesEstudio()
         {
         ERROR:
@@ -282,7 +213,7 @@ namespace P22CV.Funciones
             Console.WriteLine("2. Agregar");
             Console.WriteLine("3. Editar");
             Console.WriteLine("4. Eliminar");
-            CRUDEstudio stu = new CRUDEstudio();
+            CrudEstudios stu = new CrudEstudios();
             int opc = int.Parse(Console.ReadLine());
             switch (opc)
             {
@@ -292,23 +223,7 @@ namespace P22CV.Funciones
                     goto ERROR;
                 case 2:
                     Console.Clear();
-
-                    Console.WriteLine("Nombre");
-                    string nombre = Console.ReadLine();
-
-                    Console.WriteLine("direccion");
-                    string direccion = Console.ReadLine();
-
-                    Console.WriteLine("anio de fundacion");
-                    string anio = Console.ReadLine();
-
-                    Console.WriteLine("fundador");
-                    string fundador = Console.ReadLine();
-
-                    Console.WriteLine("Franquicia mas famosa que posee");
-                    string Franquicia = Console.ReadLine();
-
-                    stu.Crear(nombre, direccion,anio, fundador, Franquicia);
+                    stu.Crear();
                     goto ERROR;
                 case 3:
                     Console.Clear();
@@ -339,7 +254,7 @@ namespace P22CV.Funciones
             Console.WriteLine("2. Agregar");
             Console.WriteLine("3. Editar");
             Console.WriteLine("4. Eliminar");
-            CRUDUsuarios user = new CRUDUsuarios();
+            CrudUsuarios user = new CrudUsuarios();
             int opc = int.Parse(Console.ReadLine());
             switch (opc)
             {
@@ -349,14 +264,7 @@ namespace P22CV.Funciones
                     goto ERROR;
                 case 2:
                     Console.Clear();
-
-                    Console.WriteLine("Nombre");
-                    string nombre = Console.ReadLine();
-
-                    Console.WriteLine("Password");
-                    string password = Console.ReadLine();
-
-                    user.Crear(nombre, password);
+                    user.Crear();
                     goto ERROR;
                 case 3:
                     Console.Clear();

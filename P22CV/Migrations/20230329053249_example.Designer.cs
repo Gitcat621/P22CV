@@ -9,7 +9,7 @@ using P22CV.Context;
 namespace P22CV.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230328051847_example")]
+    [Migration("20230329053249_example")]
     partial class example
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,13 +27,7 @@ namespace P22CV.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("Año")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DiaNacimiento")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MesNacimiento")
+                    b.Property<string>("FechaNac")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nacionalidad")
@@ -60,13 +54,7 @@ namespace P22CV.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("AñoNacimiento")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DiaNacimiento")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MesNacimiento")
+                    b.Property<string>("FechaNac")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nacionalidad")
@@ -85,13 +73,13 @@ namespace P22CV.Migrations
 
             modelBuilder.Entity("P22CV.Clases.Estudios", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("AñoFundacion")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AnioFundacion")
+                        .HasColumnType("int");
 
                     b.Property<string>("Direccion")
                         .HasColumnType("nvarchar(max)");
@@ -105,7 +93,7 @@ namespace P22CV.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.ToTable("Estudios");
                 });
@@ -117,7 +105,7 @@ namespace P22CV.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("Año")
+                    b.Property<int>("Anio")
                         .HasColumnType("int");
 
                     b.Property<string>("Clasificacion")
@@ -126,8 +114,8 @@ namespace P22CV.Migrations
                     b.Property<string>("Director")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Duracion")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Duracion")
+                        .HasColumnType("int");
 
                     b.Property<string>("Genero")
                         .HasColumnType("nvarchar(max)");

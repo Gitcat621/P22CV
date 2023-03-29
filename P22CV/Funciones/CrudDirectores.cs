@@ -8,13 +8,23 @@ using System.Threading.Tasks;
 
 namespace P22CV.Funciones
 {
-    internal class CRUDDirector
+    internal class CrudDirectores
     {
-        public void Crear(string nom, string nac, string pel, int anio, string mes, string dia)
+        public void Crear()
         {
-            Console.WriteLine("INSERTAR ACTOR");
+            Console.WriteLine("INSERTAR DIRECTOR");
 
+            Console.WriteLine("Nombre");
+            string Nombre = Console.ReadLine();
 
+            Console.WriteLine("Nacionalidad");
+            string Nacionalidad = Console.ReadLine();
+
+            Console.WriteLine("pelicula Famosa");
+            string Pel = Console.ReadLine();
+
+            Console.WriteLine("fecha de nacimiento");
+            string Fecha = Console.ReadLine();
 
             using (var _context = new ApplicationDbContext())
             {
@@ -22,12 +32,10 @@ namespace P22CV.Funciones
                 Directores dir = new Directores()
                 {
 
-                    Nombre = nom,
-                    Nacionalidad = nac,
-                    PeliculaFamosa = pel,
-                    AñoNacimiento = anio,
-                    MesNacimiento = mes,
-                    DiaNacimiento = dia,
+                    Nombre = Nombre,
+                    Nacionalidad = Nacionalidad,
+                    PeliculaFamosa = Pel,
+                    FechaNac = Fecha,
 
                 };
 
@@ -52,12 +60,8 @@ namespace P22CV.Funciones
                 dir.Nacionalidad = (Console.ReadLine());
                 Console.WriteLine("Ingrese la PeliculaFamosa");
                 dir.PeliculaFamosa = Console.ReadLine();
-                Console.WriteLine("Ingrese el anio de nacimiento");
-                dir.AñoNacimiento = int.Parse(Console.ReadLine());
-                Console.WriteLine("Ingrese el mes de nacimiento");
-                dir.MesNacimiento = Console.ReadLine();
-                Console.WriteLine("Ingrese el dia de nacimiento");
-                dir.DiaNacimiento = Console.ReadLine();
+                Console.WriteLine("Ingrese la fecha de nacimiento");
+                dir.FechaNac = Console.ReadLine();
 
                 _context.Directores.Update(dir);
                 _context.SaveChanges();
@@ -83,7 +87,7 @@ namespace P22CV.Funciones
                     Console.WriteLine($">> Nombre: {item.Nombre}");
                     Console.WriteLine($">> Nacionalidad: {item.Nacionalidad}");
                     Console.WriteLine($">> Pelicula Famosa: {item.PeliculaFamosa}");
-                    Console.WriteLine($">> Fecha de Nacimiento: {item.DiaNacimiento}/{item.MesNacimiento}/{item.AñoNacimiento}");
+                    Console.WriteLine($">> Fecha de Nacimiento: {item.FechaNac}");
                     Console.WriteLine("_________________________________");
 
 

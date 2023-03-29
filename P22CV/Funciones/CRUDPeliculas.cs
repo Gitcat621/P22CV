@@ -8,13 +8,35 @@ using System.Threading.Tasks;
 
 namespace P22CV.Funciones
 {
-    internal class CRUDPeliculas
+    internal class CrudPeliculas
     {
-        public void Crear(string nom, int anio, string cla, string dir, string nac, string gen, string idi, string dur)
+        public void Crear()
         {
-            Console.WriteLine("INSERTAR USUARIO");
+            Console.WriteLine("INSERTAR PELICULA");
 
+            Console.WriteLine("Nombre");
+            string nombre = Console.ReadLine();
 
+            Console.WriteLine("Anio");
+            int anio = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Clasificacion");
+            string clasificacion = Console.ReadLine();
+
+            Console.WriteLine("Director");
+            string director = Console.ReadLine();
+
+            Console.WriteLine("Nacionalidad");
+            string nacionalidad = Console.ReadLine();
+
+            Console.WriteLine("Genero");
+            string genero = Console.ReadLine();
+
+            Console.WriteLine("Idioma"); ;
+            string idioma = Console.ReadLine();
+
+            Console.WriteLine("Duracion");
+            int duracion = int.Parse(Console.ReadLine());
 
             using (var _context = new ApplicationDbContext())
             {
@@ -22,14 +44,14 @@ namespace P22CV.Funciones
                 Peliculas peli = new Peliculas()
                 {
 
-                    Nombre = nom,
-                    Año = anio,
-                    Clasificacion = cla,
-                    Director = dir,
-                    Nacionalidad = nac,
-                    Genero = gen,
-                    Idioma = idi,
-                    Duracion = dur,
+                    Nombre = nombre,
+                    Anio = anio,
+                    Clasificacion = clasificacion,
+                    Director = director,
+                    Nacionalidad = nacionalidad,
+                    Genero = genero,
+                    Idioma = idioma,
+                    Duracion = duracion,
 
                 };
 
@@ -51,7 +73,7 @@ namespace P22CV.Funciones
                 Console.WriteLine("Ingrese el nombre");
                 peli.Nombre = Console.ReadLine();
                 Console.WriteLine("Ingrese el anio");
-                peli.Año = int.Parse(Console.ReadLine());
+                peli.Anio = int.Parse(Console.ReadLine());
                 Console.WriteLine("Ingrese la clasificacion");
                 peli.Clasificacion = Console.ReadLine();
                 Console.WriteLine("Ingrese el director");
@@ -63,7 +85,7 @@ namespace P22CV.Funciones
                 Console.WriteLine("Ingrese el idioma");
                 peli.Idioma = Console.ReadLine();
                 Console.WriteLine("Ingrese la duracion");
-                peli.Duracion = Console.ReadLine();
+                peli.Duracion = int.Parse(Console.ReadLine());
 
                 _context.Peliculas.Update(peli);
                 _context.SaveChanges();
@@ -87,13 +109,13 @@ namespace P22CV.Funciones
                     Console.WriteLine("---------------------------------");
                     Console.WriteLine($">> Id: {item.Id}");
                     Console.WriteLine($">> Nombre: {item.Nombre}");
-                    Console.WriteLine($">> Año: {item.Año}");
+                    Console.WriteLine($">> Año: {item.Anio}");
                     Console.WriteLine($">> Clasificacion: {item.Clasificacion}");
                     Console.WriteLine($">> Director: {item.Director}");
                     Console.WriteLine($">> Nacionalidad: {item.Nacionalidad}");
                     Console.WriteLine($">> Genero: {item.Genero}");
                     Console.WriteLine($">> Idioma: {item.Idioma}");
-                    Console.WriteLine($">> Duracion: {item.Duracion}");
+                    Console.WriteLine($">> Duracion: {item.Duracion} Hrs");
                     Console.WriteLine("_________________________________");
 
 

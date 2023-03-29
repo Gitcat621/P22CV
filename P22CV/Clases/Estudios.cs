@@ -10,10 +10,10 @@ namespace P22CV.Clases
     internal class Estudios
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Nombre { get; set; }
         public string Direccion { get; set; }
-        public string AñoFundacion { get; set; }
+        public int AnioFundacion { get; set; }
         public string Fundador { get; set; }
         public string MejorFranquicia { get; set; }
     }

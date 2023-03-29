@@ -8,13 +8,47 @@ using System.Threading.Tasks;
 
 namespace P22CV.Funciones
 {
-    internal class CRUDUsuarios
+    internal class CrudUsuarios
     {
-        public void Crear(string nombre, string password)
+        public void singin()
         {
-            Console.WriteLine("INSERTAR ACTOR");
+            REINTENTO:
+            Console.WriteLine("INICIE SESION");
 
+            Console.WriteLine("Ingrese su usuario");
+            string nombre = Console.ReadLine();
 
+            Console.WriteLine("Ingrese su password");
+            string password = Console.ReadLine();
+
+            using (ApplicationDbContext _context = new ApplicationDbContext())
+            {
+                var request = _context.Usuarios.Where(x => x.Nombre == nombre && x.Password == password).FirstOrDefault();
+
+                if (request != null)
+                {
+                    Console.Clear();
+                    Menu menu = new Menu();
+                    menu.Inicio();
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Usuario o contrasena incorrecta");
+                    goto REINTENTO;
+                }
+            }
+
+        }
+        public void Crear()
+        {
+            Console.WriteLine("INSERTAR USUARIO");
+
+            Console.WriteLine("Nombre");
+            string nombre = Console.ReadLine();
+
+            Console.WriteLine("Password");
+            string password = Console.ReadLine();
 
             using (var _context = new ApplicationDbContext())
             {

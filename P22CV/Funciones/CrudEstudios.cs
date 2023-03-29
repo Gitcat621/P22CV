@@ -8,12 +8,26 @@ using System.Threading.Tasks;
 
 namespace P22CV.Funciones
 {
-    internal class CRUDEstudio
+    internal class CrudEstudios
     {
-        public void Crear(string nombre, string direccion,string anio,string fundador,string franq)
+        public void Crear()
         {
-            Console.WriteLine("INSERTAR ACTOR");
+            Console.WriteLine("INSERTAR ESTUDIO");
 
+            Console.WriteLine("Nombre");
+            string nombre = Console.ReadLine();
+
+            Console.WriteLine("direccion");
+            string direccion = Console.ReadLine();
+
+            Console.WriteLine("anio de fundacion");
+            int anio = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("fundador");
+            string fundador = Console.ReadLine();
+
+            Console.WriteLine("Franquicia mas famosa que posee");
+            string franquicia = Console.ReadLine();
 
 
             using (var _context = new ApplicationDbContext())
@@ -24,9 +38,9 @@ namespace P22CV.Funciones
 
                     Nombre = nombre,
                     Direccion = direccion,
-                    AñoFundacion = anio,
+                    AnioFundacion = anio,
                     Fundador = fundador,
-                    MejorFranquicia = franq
+                    MejorFranquicia = franquicia
 
                 };
 
@@ -50,7 +64,7 @@ namespace P22CV.Funciones
                 Console.WriteLine("Ingrese la direccion");
                 stu.Direccion = Console.ReadLine();
                 Console.WriteLine("Ingrese el anio de fundacion");
-                stu.AñoFundacion = Console.ReadLine();
+                stu.AnioFundacion = int.Parse(Console.ReadLine());
                 Console.WriteLine("Ingrese el nombre del fundador");
                 stu.Fundador = Console.ReadLine();
                 Console.WriteLine("Ingrese la mejor franquicia que posee");
@@ -76,12 +90,12 @@ namespace P22CV.Funciones
                 {
 
                     Console.WriteLine("---------------------------------");
-                    Console.WriteLine($">> Id: {item.id}");
+                    Console.WriteLine($">> Id: {item.Id}");
                     Console.WriteLine($">> Nombre: {item.Nombre}");
-                    Console.WriteLine($">> Año: {item.Direccion}");
-                    Console.WriteLine($">> Año: {item.AñoFundacion}");
-                    Console.WriteLine($">> Año: {item.Fundador}");
-                    Console.WriteLine($">> Año: {item.MejorFranquicia}");
+                    Console.WriteLine($">> Direccion: {item.Direccion}");
+                    Console.WriteLine($">> Fundado en: {item.AnioFundacion}");
+                    Console.WriteLine($">> Fundador: {item.Fundador}");
+                    Console.WriteLine($">> Franquicia mas exitosa: {item.MejorFranquicia}");
                     Console.WriteLine("_________________________________");
 
 

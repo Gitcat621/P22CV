@@ -16,9 +16,7 @@ namespace P22CV.Migrations
                     Nacionalidad = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PersonajeFamoso = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PeliculaFamosa = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Año = table.Column<int>(type: "int", nullable: false),
-                    MesNacimiento = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DiaNacimiento = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    FechaNac = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -34,9 +32,7 @@ namespace P22CV.Migrations
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Nacionalidad = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PeliculaFamosa = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AñoNacimiento = table.Column<int>(type: "int", nullable: false),
-                    MesNacimiento = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DiaNacimiento = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    FechaNac = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -47,17 +43,17 @@ namespace P22CV.Migrations
                 name: "Estudios",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Direccion = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AñoFundacion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AnioFundacion = table.Column<int>(type: "int", nullable: false),
                     Fundador = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MejorFranquicia = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Estudios", x => x.id);
+                    table.PrimaryKey("PK_Estudios", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -67,13 +63,13 @@ namespace P22CV.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Año = table.Column<int>(type: "int", nullable: false),
+                    Anio = table.Column<int>(type: "int", nullable: false),
                     Clasificacion = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Director = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Nacionalidad = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Genero = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Idioma = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Duracion = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Duracion = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

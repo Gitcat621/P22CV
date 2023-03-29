@@ -12,12 +12,12 @@ namespace P22CV.Clases
         [Key]
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public int Año { get; set; }
+        public int Anio { get; set; }
         public string Clasificacion { get; set; }
         public string Director { get; set; }
         public string Nacionalidad { get; set; }
         public string Genero { get; set; }
         public string Idioma { get; set; }
-        public string Duracion { get; set; }
+        public int Duracion { get; set; }
     }
 }

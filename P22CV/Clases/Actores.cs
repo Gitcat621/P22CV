@@ -15,12 +15,6 @@ namespace P22CV.Clases
         public string Nacionalidad { get; set; }
         public string PersonajeFamoso { get; set; }
         public string PeliculaFamosa { get; set; }
-
-        #region Atributos FechadeNacimiento
-        //Atributos de la Fecha de nacimiento
-        public int Año { get; set; }
-        public string MesNacimiento { get; set; }
-        public string DiaNacimiento { get; set; }
-        #endregion
+        public string FechaNac { get; set; }
     }
 }
